@@ -9,15 +9,16 @@ class Product(models.Model):
     CHOICES=(['N','New'],
              ['O','Old'])
     
-    user=models.ForeignKey(User,on_delete=models.CASCADE, blank=True)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     name=models.CharField(max_length=100)
     description=models.CharField(max_length=500)
     image=models.ImageField(null=True)
     condition=models.CharField(max_length=1,choices=CHOICES,default='N')
-    damage_description=models.CharField(max_length=500)
+    damage_description=models.CharField(max_length=500,blank=True)
     min_sell_price=models.IntegerField(default=0)
     min_raise_amt=models.IntegerField(default=1)
     last_date=models.DateTimeField(default=timezone.now)
+    highest_bid=models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),  # Include login/logout URLs
     path('product/', include('product.urls')),  # Product-related routes
+    path('bidding/',include('bidding.urls'))
 ]
 
